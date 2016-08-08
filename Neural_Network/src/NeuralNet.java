@@ -21,8 +21,8 @@ public class NeuralNet {
 	
 
 
-	public static void main(String[] args) {
-		
+	public static void main(String [ ] args) {
+		System.out.println("hi");
 		NeuralNet n = new NeuralNet();
 		n.initNet();
 		n.printNet();
@@ -30,9 +30,9 @@ public class NeuralNet {
 	}
 	
 	public void initNet(){
-		inputLayer.initLayer(inputLayer);
-		hiddenLayer.initLayer(hiddenLayer, listOfHiddenLayer, inputLayer, outputLayer);
-		outputLayer.initLayer(outputLayer);
+		inputLayer = inputLayer.initLayer(inputLayer);
+		listOfHiddenLayer = hiddenLayer.initLayer(hiddenLayer, listOfHiddenLayer, inputLayer, outputLayer);
+		outputLayer = outputLayer.initLayer(outputLayer);
 		
 	}
 	
@@ -139,7 +139,4 @@ public class NeuralNet {
 
 	
 	
-}
-
-
 }
