@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+//not finished yet
+
 public class Layer {
 	
 	private static ArrayList <Neuron> listofNeurons;
