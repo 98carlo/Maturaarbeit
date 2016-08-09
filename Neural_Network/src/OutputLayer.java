@@ -6,16 +6,14 @@ public class OutputLayer {
 	private int NumberOfNeuronsInLayer;
 	
 	public OutputLayer initLayer (OutputLayer outputLayer){
-		outputLayer = new OutputLayer();
-		ArrayList <Double> weightOut = new ArrayList <Double> ();
-		for (int i = 0; i < NumberOfNeuronsInLayer; i++){
+		Layer layer = new Layer();
+		int NumberOfWeightOut = 2;
+		for (int i = 0; i < NumberOfNeuronsInLayer; i ++){
 			Neuron neuron = new Neuron();
-			double WeightOut = neuron.initNeuron();
-			weightOut.clear();
-			weightOut.add(WeightOut);
-			neuron.setListOfWeightIn(weightOut);
+			neuron.initNeuron(0, NumberOfWeightOut, neuron);
 			ListOfNeurons.add(neuron);
 		}
+		layer.setListOfNeurons(ListOfNeurons);
 		return outputLayer;
 	}
 	
