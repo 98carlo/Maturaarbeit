@@ -2,34 +2,23 @@ import java.util.ArrayList;
 
 public class HiddenLayer {
 	
+	private ArrayList <Neuron> ListOfNeurons = new ArrayList <Neuron> ();
+	private int NumberOfNeuronsInLayer;
+	
 	public ArrayList <HiddenLayer> initLayer (HiddenLayer hiddenLayer,ArrayList <HiddenLayer> listOfHiddenLayer,InputLayer inputLayer, OutputLayer outputLayer){
+		//initializes Layer with a specific number of Neurons
+		Layer layer = new Layer();
 		int NumberOfNeuronsInInputLayer = inputLayer.getNumberOfNeuronsInLayer();
 		int NumberOfNeuronsInOutputLayer = outputLayer.getNumberOfNeuronsInLayer();
-		ArrayList <Double> weightIn = new ArrayList <Double> ();
-		ArrayList <Double> weightOut = new ArrayList <Double> ();
-		hiddenLayer = new HiddenLayer();
-		ArrayList <Neuron> ListOfNeurons = new ArrayList <Neuron> ();
-		Layer layer = new Layer ();
-		layer.setNumberOfNeuronsInLayer(4);
-		int NeuronsInLayer = layer.getNumberOfNeuronsInLayer();
-		for ( int k = 0; k < NeuronsInLayer; k++){
+		for ( int i = 0; i < NumberOfNeuronsInLayer; i++){
 			Neuron neuron = new Neuron();
-		for ( int i = 0 ; i < NumberOfNeuronsInInputLayer ; i++){
-			double WeightIn = neuron.initNeuron();
-			weightIn.add(WeightIn);
+			neuron = neuron.initNeuron(NumberOfNeuronsInInputLayer, NumberOfNeuronsInOutputLayer, neuron);
+			ListOfNeurons.add(neuron);
 		}
-		for (int o = 0; o < NumberOfNeuronsInOutputLayer; o++){
-			double WeightOut = neuron.initNeuron();
-			weightOut.add(WeightOut);
-		}
-		 
-		neuron.setListOfWeightIn(weightIn);
-		neuron.setListOfWeightOut(weightOut);
-		ListOfNeurons.add(neuron);
-		}
+		layer.setListOfNeurons(ListOfNeurons);
+		//adds the hiddenLayer to the listOfHiddenLayer if I need several HiddenLayers
 		listOfHiddenLayer.add(hiddenLayer);
-		
-		
+		//returns the list
 		return listOfHiddenLayer;
 		
 	}
