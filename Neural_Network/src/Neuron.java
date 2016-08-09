@@ -6,12 +6,15 @@ public class Neuron {
 	private ArrayList <Double> ListofWeightOut;
 
 	
-	public Double initNeuron()
+	public Neuron initNeuron(int NumberOfWeightIn, int NumberOfWeightOut, Neuron neuron)
 	{
-		Double randomnum = Math.random();
-		ListofWeightIn.add(randomnum);
-		ListofWeightOut.add(randomnum);
-		return randomnum;
+		for (int i = 0; i < NumberOfWeightIn; i++){
+			ListofWeightIn.add(Math.random());
+		}
+		for (int j = 0; j < NumberOfWeightOut; j++){
+			ListofWeightOut.add(Math.random());
+		}
+		return neuron;
 		
 	}
 	
