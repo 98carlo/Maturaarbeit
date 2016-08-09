@@ -8,12 +8,14 @@ public class Neuron {
 	
 	public Neuron initNeuron(int NumberOfWeightIn, int NumberOfWeightOut, Neuron neuron)
 	{
+		//initializes the Neuron with a specific number of WeightIn and WeightOut
 		for (int i = 0; i < NumberOfWeightIn; i++){
 			ListofWeightIn.add(Math.random());
 		}
 		for (int j = 0; j < NumberOfWeightOut; j++){
 			ListofWeightOut.add(Math.random());
 		}
+		//returns a neuron
 		return neuron;
 		
 	}
