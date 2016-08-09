@@ -23,13 +23,16 @@ public class HiddenLayer {
 		
 	}
 	
-	public void printLayer (ArrayList <HiddenLayer> listOfHiddenLayer){
-		for (int i = 0; i < listOfHiddenLayer.size(); i++){
+	public void printLayer (HiddenLayer hiddenLayer){
+		for (int i = 0; i < NumberOfNeuronsInLayer ; i++){
 			int x = i++;
-			HiddenLayer hiddenLayer = listOfHiddenLayer.get(i);
-			System.out.println(x + ". Hiddenlayer");
-			System.out.println(hiddenLayer.toString());
+			System.out.println(x + ". Neuron");
+			Neuron neuron = ListOfNeurons.get(i);
+			System.out.println("Input: ");
+			System.out.println(neuron.getlistOfWeightIn().toString());
+			System.out.println("Output: ");
+			System.out.println(neuron.getListOfWeightOut().toString());
+			}
 		}
-	}
-
+	
 }
