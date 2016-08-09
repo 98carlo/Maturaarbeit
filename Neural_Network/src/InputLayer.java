@@ -7,16 +7,14 @@ public class InputLayer {
 	private static ArrayList <Neuron> ListOfNeurons;
 	
 	public InputLayer initLayer (InputLayer inputLayer){
-		inputLayer = new InputLayer();
-		ArrayList <Double> weightIn = new ArrayList <Double> ();
-		for (int i = 0; i < numberOfNeuronsInLayer; i++){
+		Layer layer = new Layer();
+		int NumberOfWeightIn = 2;
+		for (int i = 0; i < numberOfNeuronsInLayer; i ++){
 			Neuron neuron = new Neuron();
-			double WeightIn = neuron.initNeuron();
-			weightIn.clear();
-			weightIn.add(WeightIn);
-			neuron.setListOfWeightIn(weightIn);
+			neuron.initNeuron(NumberOfWeightIn, 0, neuron);
 			ListOfNeurons.add(neuron);
 		}
+		layer.setListOfNeurons(ListOfNeurons);
 		return inputLayer;	                                                                                          
 	} 
 	
