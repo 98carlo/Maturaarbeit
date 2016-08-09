@@ -30,9 +30,15 @@ public class NeuralNet {
 	}
 	
 	public void initNet(){
+		inputLayer = new InputLayer();
 		inputLayer = inputLayer.initLayer(inputLayer);
-		listOfHiddenLayer = hiddenLayer.initLayer(hiddenLayer, listOfHiddenLayer, inputLayer, outputLayer);
+		outputLayer = new OutputLayer();
 		outputLayer = outputLayer.initLayer(outputLayer);
+		for (int i = 0; i < listOfHiddenLayer.size(); i++){
+		hiddenLayer = new HiddenLayer();
+		listOfHiddenLayer = hiddenLayer.initLayer(hiddenLayer, listOfHiddenLayer, inputLayer, outputLayer);
+		}
+
 		
 	}
 	
