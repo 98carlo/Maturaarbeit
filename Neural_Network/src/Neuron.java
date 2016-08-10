@@ -2,18 +2,22 @@ import java.util.ArrayList;
 
 public class Neuron {
 	
-	private ArrayList <Double> ListofWeightIn;
-	private ArrayList <Double> ListofWeightOut;
+	private ArrayList <Double> ListofWeightIn = new ArrayList<Double>();
+	private ArrayList <Double> ListofWeightOut = new ArrayList<Double>();
 
 	
 	public Neuron initNeuron(int NumberOfWeightIn, int NumberOfWeightOut, Neuron neuron)
 	{
 		//initializes the Neuron with a specific number of WeightIn and WeightOut
+		ListofWeightIn.ensureCapacity(NumberOfWeightIn);
 		for (int i = 0; i < NumberOfWeightIn; i++){
-			ListofWeightIn.add(Math.random());
+			double RandomWeight = Math.random();
+			ListofWeightIn.add(RandomWeight);
 		}
+		ListofWeightOut.ensureCapacity(NumberOfWeightOut);
 		for (int j = 0; j < NumberOfWeightOut; j++){
-			ListofWeightOut.add(Math.random());
+			double RandomWeight = Math.random();
+			ListofWeightOut.add(RandomWeight);
 		}
 		//returns a neuron
 		return neuron;

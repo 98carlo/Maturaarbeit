@@ -4,7 +4,7 @@ public class NeuralNet {
 	
 	private InputLayer inputLayer;
 	private HiddenLayer hiddenLayer;
-	private ArrayList <HiddenLayer> listOfHiddenLayer;
+	private ArrayList <HiddenLayer> listOfHiddenLayer = new ArrayList <HiddenLayer>();
 	private OutputLayer outputLayer;
 	private int numberOfHiddenLayers;
 	private int maxEpochs;
@@ -22,7 +22,7 @@ public class NeuralNet {
 
 
 	public static void main(String [ ] args) {
-		System.out.println("hi");
+		System.out.println("initiating Neural Network");
 		NeuralNet n = new NeuralNet();
 		n.initNet();
 		n.printNet();
@@ -34,7 +34,8 @@ public class NeuralNet {
 		inputLayer = inputLayer.initLayer(inputLayer);
 		outputLayer = new OutputLayer();
 		outputLayer = outputLayer.initLayer(outputLayer);
-		for (int i = 0; i < listOfHiddenLayer.size(); i++){
+		numberOfHiddenLayers = 1;
+		for (int i = 0; i < numberOfHiddenLayers; i++){
 		hiddenLayer = new HiddenLayer();
 		listOfHiddenLayer = hiddenLayer.initLayer(hiddenLayer, listOfHiddenLayer, inputLayer, outputLayer);
 		}
@@ -45,7 +46,10 @@ public class NeuralNet {
 	public void printNet(){
 		
 		inputLayer.printLayer(inputLayer);
-		hiddenLayer.printLayer(listOfHiddenLayer);
+		for(int i = 0; i < listOfHiddenLayer.size(); i++){
+			hiddenLayer = listOfHiddenLayer.get(i);
+			hiddenLayer.printLayer(hiddenLayer);
+		}
 		outputLayer.printLayer(outputLayer);
 	
 	}

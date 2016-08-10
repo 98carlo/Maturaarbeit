@@ -4,9 +4,11 @@ public class InputLayer {
 
 	
 	private int numberOfNeuronsInLayer;
-	private static ArrayList <Neuron> ListOfNeurons;
+	private static ArrayList <Neuron> ListOfNeurons = new ArrayList <Neuron>();
 	
 	public InputLayer initLayer (InputLayer inputLayer){
+		System.out.println("initiating InputLayer");
+		numberOfNeuronsInLayer = 3;
 		Layer layer = new Layer();
 		int NumberOfWeightIn = 2;
 		for (int i = 0; i < numberOfNeuronsInLayer; i ++){
@@ -14,13 +16,21 @@ public class InputLayer {
 			neuron.initNeuron(NumberOfWeightIn, 0, neuron);
 			ListOfNeurons.add(neuron);
 		}
+		layer.setNumberOfNeuronsInLayer(numberOfNeuronsInLayer);
 		layer.setListOfNeurons(ListOfNeurons);
 		return inputLayer;	                                                                                          
 	} 
 	
 	void printLayer(InputLayer inputLayer){
 		System.out.println("------ InputLayer ------");
-		System.out.println(inputLayer.toString());
+		int x = 1;
+		for (int i = 0; i < numberOfNeuronsInLayer; i++){
+			Neuron neuron = ListOfNeurons.get(i);
+			System.out.println(x + ". Neuron");
+			System.out.println("Input: ");
+			System.out.println(neuron.getlistOfWeightIn());
+			x++;
+		}
 	}
 	
 	public void setNumberOfNeuronsInLayer (int numberOfNeuronsInLayer){

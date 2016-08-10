@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Layer {
 	
-	private static ArrayList <Neuron> listofNeurons;
+	private static ArrayList <Neuron> listofNeurons = new ArrayList <Neuron>();
 	private int numberOfNeuronsInLayer;
 	
 	
