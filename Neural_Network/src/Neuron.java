@@ -10,14 +10,18 @@ public class Neuron {
 	{
 		//initializes the Neuron with a specific number of WeightIn and WeightOut
 		ListofWeightIn.ensureCapacity(NumberOfWeightIn);
+		if (NumberOfWeightIn != 0){
 		for (int i = 0; i < NumberOfWeightIn; i++){
 			double RandomWeight = Math.random();
 			ListofWeightIn.add(RandomWeight);
 		}
+		}
 		ListofWeightOut.ensureCapacity(NumberOfWeightOut);
+		if (NumberOfWeightOut != 0){
 		for (int j = 0; j < NumberOfWeightOut; j++){
 			double RandomWeight = Math.random();
 			ListofWeightOut.add(RandomWeight);
+		}
 		}
 		//returns a neuron
 		return neuron;

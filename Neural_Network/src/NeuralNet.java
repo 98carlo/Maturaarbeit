@@ -8,6 +8,8 @@ public class NeuralNet {
 	private OutputLayer outputLayer;
 	private int numberOfHiddenLayers;
 	private int maxEpochs;
+	//need 3 dimensional trainSet so I can describe the location of the players
+	//which position and x-coordinates and y-coordinates
 	private double[] [] trainSet;
 	private double learningRate;
 	/*
@@ -54,7 +56,12 @@ public class NeuralNet {
 	
 	}
 	
-	public double [] [] getTrainSet(){
+	public void setTrainSet (){
+		
+		
+	}
+	
+	public double [] []  getTrainSet(){
 		return this.trainSet;
 	}
 	
@@ -79,7 +86,7 @@ public class NeuralNet {
 
 	public void setInputLayer(InputLayer inputLayer) {
 		
-		
+		this.inputLayer = inputLayer;
 		
 	}
 	
@@ -95,9 +102,13 @@ public class NeuralNet {
 	
 	}
 	
-	/*public NeuralNet trainNet (NeuralNet n){
+	public NeuralNet trainNet (NeuralNet n){
+		Kohonen Training = new Kohonen();
+		n = Training.train(n);
 		return n;
 	}
+	
+	/*
 	
 	public void setTargetError (double targetError){
 		

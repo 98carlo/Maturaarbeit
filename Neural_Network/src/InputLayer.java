@@ -8,7 +8,8 @@ public class InputLayer {
 	
 	public InputLayer initLayer (InputLayer inputLayer){
 		System.out.println("initiating InputLayer");
-		numberOfNeuronsInLayer = 3;
+		//Mortal Kombat 3 has a maximum of 19 scenarios, 10 basic moves, 7 special moves and 2 healthbars
+		numberOfNeuronsInLayer = 19;
 		Layer layer = new Layer();
 		int NumberOfWeightIn = 2;
 		for (int i = 0; i < numberOfNeuronsInLayer; i ++){

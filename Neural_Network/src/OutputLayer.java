@@ -8,8 +8,8 @@ public class OutputLayer {
 	public OutputLayer initLayer (OutputLayer outputLayer){
 		System.out.println("initiating OutputLayer");
 		Layer layer = new Layer();
-		NumberOfNeuronsInLayer = 2;
-		int NumberOfWeightOut = 2;
+		NumberOfNeuronsInLayer = 17;
+		int NumberOfWeightOut = 1;
 		for (int i = 0; i < NumberOfNeuronsInLayer; i ++){
 			Neuron neuron = new Neuron();
 			neuron.initNeuron(0, NumberOfWeightOut, neuron);
