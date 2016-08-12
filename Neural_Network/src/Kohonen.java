@@ -11,7 +11,7 @@ public class Kohonen {
 		//initiating the NeuralNetwork
 		initNet(n);
 		//getting the TrainSet and its Length
-		double [] [] trainData = n.getTrainSet();
+		double [] []  trainData = n.getTrainSet();
 		int rows = trainData.length;
 		int cols = trainData[0].length;
 		//Kohonen works mostly with the distances of the values

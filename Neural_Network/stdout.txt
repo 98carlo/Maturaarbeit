@@ -1,0 +1,8 @@
+Reading config file C:\Users\carlo\Desktop\Maturaarbeit\Emulator MA/snes9x.conf.
+Saving	config file	C:\Users\carlo\Desktop\Maturaarbeit\Emulator MA/snes9x.conf
+Sound buffer size: 8192 (2048 samples)
+No ROM file header found.
+Map_HiROMMap
+"MORTAL KOMBAT 3" [checksum ok] HiROM, 32Mbits, ROM, PAL, SRAM:0Kbits, ID:A3MP, CRC32:CA3CEB0A
+Sound buffer size: 8192 (2048 samples)
+Saving	config file	C:\Users\carlo\Desktop\Maturaarbeit\Emulator MA/snes9x.conf

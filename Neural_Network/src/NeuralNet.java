@@ -16,18 +16,21 @@ public class NeuralNet {
 	private double [] realOutputSet;
 	private double targetError;
 	private double trainingsError;
-	private Training.TrainingTypesENUM trainType;
+	private Training.Train ingTypesENUM trainType;
 	private Training.ActivationFncENUM activationFnc;
 	private ArrayList <Double> listOfMSE = new ArrayList<Double>();*/
 	
 	
 
 
-	public static void main(String [ ] args) {
+	public static void main(String [ ] args) throws Exception {
 		System.out.println("initiating Neural Network");
 		NeuralNet n = new NeuralNet();
 		n.initNet();
 		n.printNet();
+		System.out.println("starting Emulator");
+		EmulatorStart emulator = new EmulatorStart();
+		emulator.startEmulator();
 
 	}
 	
