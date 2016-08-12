@@ -1,4 +1,5 @@
 
+import java.awt.AWTException;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.Robot;
@@ -13,7 +14,7 @@ public class EmulatorStart {
 
 private static Robot robot = null;
     
-    public static void main(String[] args) throws Exception{
+    public void startEmulator() throws Exception{
     	   	
         robot = new Robot();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -26,18 +27,20 @@ private static Robot robot = null;
 		startEmulator(width,height);
         doubleklick (width-(width/15),80);
         Keycombination(KeyEvent.VK_ALT,KeyEvent.VK_ENTER);
-        robot.delay(16000);
+        robot.delay(23000);
         doubleklick(width/2,height/2);
         robot.delay(1000);
-        PressKey(KeyEvent.VK_ENTER);
+        PressKey(KeyEvent.VK_SPACE);
+        robot.delay(2000);
+        PressKey(KeyEvent.VK_SPACE);
         //System.out.println("enter clicked");
-        robot.delay(1000);
-        PressKey(KeyEvent.VK_ENTER);
-        robot.delay(3000);
-        PressKey(KeyEvent.VK_A);
+        robot.delay(5000);
+        PressKey(KeyEvent.VK_C);
+        robot.delay(6000);
+        PressKey(KeyEvent.VK_C);
+        robot.delay(7000);
+        PressKey(KeyEvent.VK_SPACE);
         robot.delay(4000);
-        PressKey(KeyEvent.VK_ENTER);
-        robot.delay(25000);
         //taking a screenshot and saving it to the desktop
         Screenshot();
         
@@ -80,7 +83,7 @@ private static Robot robot = null;
         robot.keyPress(l);
         robot.keyRelease(l);
         robot.keyRelease(k);
-        robot.delay(4000);
+        robot.delay(1000);
     }
   
     public static void writeMK3 ()
@@ -100,6 +103,19 @@ private static Robot robot = null;
     	PressKey (KeyEvent.VK_T);
     	PressKey (KeyEvent.VK_SPACE);
     	PressKey (KeyEvent.VK_3);
+    	PressKey (KeyEvent.VK_SPACE);
+    	Keycombination (KeyEvent.VK_SHIFT, KeyEvent.VK_8);
+    	PressKey (KeyEvent.VK_E);
+    	PressKey (KeyEvent.VK_U);
+    	PressKey (KeyEvent.VK_R);
+    	PressKey (KeyEvent.VK_O);
+    	PressKey (KeyEvent.VK_P);
+    	PressKey (KeyEvent.VK_E);
+    	Keycombination (KeyEvent.VK_SHIFT, KeyEvent.VK_9);
+    	PressKey (KeyEvent.VK_PERIOD);
+    	PressKey (KeyEvent.VK_Z);
+    	PressKey (KeyEvent.VK_I);
+    	PressKey (KeyEvent.VK_P);
     }
     
     public static void /*BufferedImage*/ Screenshot () throws Exception
@@ -124,7 +140,7 @@ private static Robot robot = null;
     public static void startEmulator (int width, int height) throws Exception
     {
     	//starting the Emulator
-    	Process p = Runtime.getRuntime().exec("C:\\Users\\carlo\\Desktop\\Maturaarbeit\\Emulator MA\\gens.exe");   	
+    	Process p = Runtime.getRuntime().exec("C:\\Users\\carlo\\Desktop\\Maturaarbeit\\Emulator MA\\snes9x.exe");   	
     	//opening the ROM
     	robot.delay(1000);
     	doubleklick (width-(width/15),90);
