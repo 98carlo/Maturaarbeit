@@ -12,9 +12,10 @@ public class InputLayer {
 		numberOfNeuronsInLayer = 19;
 		Layer layer = new Layer();
 		int NumberOfWeightIn = 2;
+		int NumberOfWeightOut = 17;
 		for (int i = 0; i < numberOfNeuronsInLayer; i ++){
 			Neuron neuron = new Neuron();
-			neuron.initNeuron(NumberOfWeightIn, 0, neuron);
+			neuron.initNeuron(NumberOfWeightIn, NumberOfWeightOut, neuron);
 			ListOfNeurons.add(neuron);
 		}
 		layer.setNumberOfNeuronsInLayer(numberOfNeuronsInLayer);
@@ -30,6 +31,8 @@ public class InputLayer {
 			System.out.println(x + ". Neuron");
 			System.out.println("Input: ");
 			System.out.println(neuron.getlistOfWeightIn());
+			System.out.println("Output: ");
+			System.out.println(neuron.getListOfWeightOut());
 			x++;
 		}
 	}

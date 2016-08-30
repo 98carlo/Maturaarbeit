@@ -6,16 +6,16 @@ public class NeuralNet {
 	private HiddenLayer hiddenLayer;
 	private ArrayList <HiddenLayer> listOfHiddenLayer = new ArrayList <HiddenLayer>();
 	private OutputLayer outputLayer;
-	private int numberOfHiddenLayers;
+	//private int numberOfHiddenLayers;
 	private int maxEpochs;
-	//need 3 dimensional trainSet so I can describe the location of the players
-	//which position and x-coordinates and y-coordinates
+	//2 dimensional trainSet
+	//one dimension are the coordinates
 	private double[] [] trainSet;
 	private double learningRate;
-	/*
-	private double [] realOutputSet;
+	private double [] estimatedOutputData;
 	private double targetError;
-	private double trainingsError;
+	private double trainingError;
+	/*
 	private Training.Train ingTypesENUM trainType;
 	private Training.ActivationFncENUM activationFnc;
 	private ArrayList <Double> listOfMSE = new ArrayList<Double>();*/
@@ -28,9 +28,9 @@ public class NeuralNet {
 		NeuralNet n = new NeuralNet();
 		n.initNet();
 		n.printNet();
-		System.out.println("starting Emulator");
-		EmulatorStart emulator = new EmulatorStart();
-		emulator.startEmulator();
+		//System.out.println("starting Emulator");
+		//EmulatorStart emulator = new EmulatorStart();
+		//emulator.startEmulator();
 
 	}
 	
@@ -39,13 +39,12 @@ public class NeuralNet {
 		inputLayer = inputLayer.initLayer(inputLayer);
 		outputLayer = new OutputLayer();
 		outputLayer = outputLayer.initLayer(outputLayer);
-		numberOfHiddenLayers = 1;
+		/*numberOfHiddenLayers = 2;
 		for (int i = 0; i < numberOfHiddenLayers; i++){
 		hiddenLayer = new HiddenLayer();
 		listOfHiddenLayer = hiddenLayer.initLayer(hiddenLayer, listOfHiddenLayer, inputLayer, outputLayer);
-		}
+		}*/
 
-		
 	}
 	
 	public void printNet(){
@@ -53,14 +52,16 @@ public class NeuralNet {
 		inputLayer.printLayer(inputLayer);
 		for(int i = 0; i < listOfHiddenLayer.size(); i++){
 			hiddenLayer = listOfHiddenLayer.get(i);
+			int x = i + 1;
+			System.out.println("------ " + x +". HiddenLayer ------");
 			hiddenLayer.printLayer(hiddenLayer);
 		}
 		outputLayer.printLayer(outputLayer);
 	
 	}
 	
-	public void setTrainSet (){
-		
+	public void setTrainSet (double [][] trainSet){
+		this.trainSet = trainSet;
 		
 	}
 	
@@ -111,56 +112,41 @@ public class NeuralNet {
 		return n;
 	}
 	
-	/*
-	
-	public void setTargetError (double targetError){
+	public HiddenLayer getHiddenLayer (NeuralNet n, int NumberOfHiddenLayer){
 		
+		hiddenLayer = listOfHiddenLayer.get(NumberOfHiddenLayer);
+		
+		return hiddenLayer;
 	}
 	
-	public void printTrainedNetResult (NeuralNet n){
-		
+	public double [] getEstimatedOutputData(){
+		return this.estimatedOutputData;
 	}
 	
-	public double [] getRealOutputSet(){
-		
+	public void setEstimatedOutputData(double[]estimatedOutputData){
+		this.estimatedOutputData = estimatedOutputData;
 	}
 	
-	public void setRealOutputSet(double [] realOutputSet){
-		
-	}
-	
-	public double getTargetError(){
-		
-	}
-	
-	public void setTrainingError (double trainingError){
-		
-	}
-	
-	public ActivationFncENUM getActivationFnc(){
-		
-	}
-	
-	public void setActivationFnc (ActivationFncENUM activationFnc){
-		
+	public double getTargetError (){
+		return this.targetError;
 	}
 
-	public TrainingTypesENUM getTrainType(){
-		
+	
+	public void setTargetError(double targetError){
+		this.targetError = targetError;
 	}
 	
-	public void setTrainType(TrainingTypesENUM trainType){
-		
+	public double getTrainingError(){
+		return this.trainingError;
 	}
 	
-	public ArrayList <Double>getListOfMSE(){
-		
+	public void setTrainingError(double trainingError){
+		this.trainingError = trainingError;
 	}
 	
-	public void setListOfMSE(ArrayList<Double> listOfMSE){
-		
-	}*/
-
+	
+	
+	
 	
 	
 }
