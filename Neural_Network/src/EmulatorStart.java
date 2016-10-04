@@ -9,12 +9,37 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.imageio.*;
 
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+
 
 public class EmulatorStart {
+	static final String filepath = "C:\\Users\\carlo\\Desktop\\Maturaarbeit\\Screenshots\\";
 
-private static Robot robot = null;
+	private static Robot robot = null;
+	public static void main(String[] args) throws Exception{
+		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		int m = 0;
+		int i = 1;
+		startEmulator();
+		Boolean esc = false;
+		//new morphology().run(filepath + "scr0.jpg");
+		while(esc == false){
+			String background = filepath + "scr" + m + ".jpg";
+			String inFile = filepath + "scr" + i + ".jpg";
+			new KeyListen().run();
+			Screenshot(inFile);
+			//new morphology().run(inFile);
+			String diff = filepath + i + ".jpg";
+			Mat matDiff = new difference().run(background, inFile, diff);
+			m++;
+			i++;
+			esc = new KeyListen().escapeKeyPressed();
+		}
+		System.exit(0);
+	}
     
-    public void startEmulator() throws Exception{
+    public static void startEmulator() throws Exception{
     	   	
         robot = new Robot();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -40,9 +65,9 @@ private static Robot robot = null;
         PressKey(KeyEvent.VK_C);
         robot.delay(7000);
         PressKey(KeyEvent.VK_SPACE);
-        robot.delay(4000);
+        robot.delay(5500);
         //taking a screenshot and saving it to the desktop
-        Screenshot();
+        Screenshot(filepath + "scr0.jpg");
         
     }
    
@@ -118,7 +143,7 @@ private static Robot robot = null;
     	PressKey (KeyEvent.VK_P);
     }
     
-    public static void /*BufferedImage*/ Screenshot () throws Exception
+    public static void /*BufferedImage*/ Screenshot (String source) throws Exception
     {
         //getting the screensize
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -129,11 +154,12 @@ private static Robot robot = null;
         //making a screenshot and saving it to the desktop
         BufferedImage image;
         image = robot.createScreenCapture(screenRect);
-        File file = new File("C:\\Users\\carlo\\Desktop\\Maturaarbeit\\Screenshots\\scr.jpg");
+        File file = new File(source);
         if(!file.exists())
         file.createNewFile();
         FileOutputStream fos = new FileOutputStream(file);
         ImageIO.write( image, "jpg", fos );
+        robot.delay(100);
         //return image;       
     }
     
